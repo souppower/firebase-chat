@@ -1,0 +1,9 @@
+css/*
+images/*
+js/*
+node_modules/
+npm-debug.log
+!.gitkeep
+database.rules.json
+firebase.json
+.firebaserc

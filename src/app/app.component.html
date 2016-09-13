@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div id="room-selector" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+                <span id="select-room">{{ currentRoomName ? currentRoomName : 'ルーム選択'}}</span>
+                <span class="caret"></span>
+            </a>
+            <ul id="rooms" class="dropdown-menu">
+                <ul>
+                    <li
+                        [style.color]="getRoomColor(roomName)"
+                        *ngFor="let roomName of roomList"
+                        (click)="joinRoom(roomName)"> {{ roomName }} </li>
+                </ul>
+                <li role="presentation" class="divider"></li>
+                <li>
+                    <button (click)="createRoom()" id="create-room" class="btn btn-default pull-right">ルーム作成</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="scroller" class="panel-body">
+        <div id="messages">
+            <div *ngFor="let message of messages">{{ message }}</div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <input id="message" class="form-control" placeholder="メッセージを送信" (keyup.enter)="post($event)">
+    </div>
+</div>
+
+<router-outlet></router-outlet>
